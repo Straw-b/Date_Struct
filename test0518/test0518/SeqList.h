@@ -2,18 +2,22 @@
 
 
 typedef int SDataType;
-//typedef double SDataType;
+//ypedef double SDataType;
+
 
 typedef struct SeqList
 {
-	SDataType* array;     // 存放元素的空间，不够时申请更大的
-	int capacity;   // 空间总的大小
-	int size;       // 空间中有效元素的个数
+	SDataType* array; //存放元素的空间，不够时申请更大的
+	int capacity;  //空间总的大小
+	int size; // 空间中有效元素的个数
 }SeqList;
+
 
 
 // typedef struct SeqList SeqList;
 
+
+//初始化
 void SeqListInit(SeqList* s, int initCapacity);
 
 // 尾插
@@ -43,17 +47,17 @@ int SeqListCapacity(SeqList* s);
 // 检测顺序表是否为空
 int SeqListEmpty(SeqList* s);
 
-// 清空
+// 顺序表清空
 void SeqListClear(SeqList* s);
 
 // 查找值为data的元素是否在顺序表中，如果在返回下标，否则返回-1
 int SeqListFind(SeqList* s, SDataType data);
 
-// 销毁
+// 顺序表销毁
 void SeqListDestroy(SeqList* s);
 
 
 
-//////////////////////////////////////////////////////
+
 // 测试方法
 void TestSeqList();

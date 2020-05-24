@@ -1,14 +1,14 @@
-﻿生成启动时间为 2020/5/19 19:26:03。
+﻿生成启动时间为 2020/5/24 11:39:50。
      1>项目“F:\Code\test0518\test0518\test0518.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt SeqList.c
          SeqList.c
        Link:
          E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Code\test0518\Debug\test0518.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Code\test0518\Debug\test0518.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Code\test0518\Debug\test0518.lib" /MACHINE:X86 Debug\SeqList.obj
-     1>MSVCRTD.lib(crtexe.obj) : error LNK2019: 无法解析的外部符号 _main，该符号在函数 ___tmainCRTStartup 中被引用
-     1>F:\Code\test0518\Debug\test0518.exe : fatal error LNK1120: 1 个无法解析的外部命令
-     1>已完成生成项目“F:\Code\test0518\test0518\test0518.vcxproj”(Build 个目标)的操作 - 失败。
+         Debug\test.obj
+         test0518.vcxproj -> F:\Code\test0518\Debug\test0518.exe
+     1>已完成生成项目“F:\Code\test0518\test0518\test0518.vcxproj”(Build 个目标)的操作。
 
-生成失败。
+生成成功。
 
-已用时间 00:00:03.35
+已用时间 00:00:00.64
