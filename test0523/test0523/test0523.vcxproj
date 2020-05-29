@@ -65,7 +65,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="SList.c" />
     <ClCompile Include="test.c" />
+    <ClCompile Include="test1.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SLish.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
