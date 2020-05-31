@@ -95,6 +95,7 @@ void SListPushFront(SListNode** head, SLDataType data)
 //ͷɾ
 void SListPopFront(SListNode** head)
 {
+	SListNode* delNode = NULL;
 	assert(head);
 	if (NULL == *head)
 	{
@@ -102,7 +103,7 @@ void SListPopFront(SListNode** head)
 		return;
 	}
 	
-	SListNode* delNode = *head;
+	delNode = *head;
 	*head = delNode->next;
 	free(delNode);
 	
@@ -122,9 +123,25 @@ void SListPopFront(SListNode** head)
 
 }
 
-void SListInsert(SListNode* pos, SLDataType data);
+void SListInsertAfter(SListNode* pos, SLDataType data)
+{
+	SListNode* newNode = NULL;
+	if (NULL == pos)
+		return;
+	newNode = BuySListNode(data);
+	newNode->next = pos->next;
+	pos->next = newNode;
+}
 
-void SListErase(SListNode* pos);
+void SListEraseAfter(SListNode* pos)
+{
+	SListNode* delNode = NULL;
+	if (NULL == pos || NULL == pos->next)
+		return;
+	delNode = pos->next;
+	pos->next = delNode->next;
+	free(delNode);
+}
 
 int SListSize(SListNode* head)
 {
@@ -221,8 +238,33 @@ void Test2()
 	SListDestroy(&listhead);
 }
 
+void Test3()
+{
+	SListNode* listhead = NULL;
+	SListPushBack(&listhead, 1);
+	SListPushBack(&listhead, 2);
+	SListPushBack(&listhead, 3);
+	SListPushBack(&listhead, 4);
+	SListPushBack(&listhead, 5);
+
+	printf("%d\n", SListSize(listhead));
+
+	SListInsertAfter(SListFind(listhead, 3), 0);
+	PrintSList(listhead);
+	SListInsertAfter(SListFind(listhead, 100), 10);
+	PrintSList(listhead);
+
+	SListEraseAfter(SListFind(listhead, 0));
+	PrintSList(listhead);
+	SListEraseAfter(SListFind(listhead, 9));
+	PrintSList(listhead);
+
+	SListDestroy(&listhead);
+}
+
 void TestSList()
 {
 	//Test1();
-	Test2();
+	//Test2();
+	Test3();
 }

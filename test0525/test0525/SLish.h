@@ -20,8 +20,8 @@ void SListPopBack(SListNode** head);
 void SListPushFront(SListNode** head, SLDataType data);
 void SListPopFront(SListNode** head);
 
-void SListInsert(SListNode* pos, SLDataType data);
-void SListErase(SListNode* pos);
+void SListInsertAfter(SListNode* pos, SLDataType data);
+void SListEraseAfter(SListNode* pos);
 
 int SListSize(SListNode* head);
 

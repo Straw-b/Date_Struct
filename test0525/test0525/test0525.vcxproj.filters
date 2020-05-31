@@ -21,6 +21,9 @@
     <ClCompile Include="SLish.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SLish.h">

@@ -67,6 +67,7 @@
   <ItemGroup>
     <ClCompile Include="SLish.c" />
     <ClCompile Include="test.c" />
+    <ClCompile Include="test1.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SLish.h" />
