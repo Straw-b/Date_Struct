@@ -92,6 +92,7 @@ struct ListNode* insertionSortList(struct ListNode* head)
 
 //11. 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
 //要求返回这个链表的深度拷贝
+
 //复杂链表的复制
 
 //方法一：
@@ -101,7 +102,7 @@ struct ListNode* insertionSortList(struct ListNode* head)
 //>>求原链表中当前节点的随机指针域到原链表起始位置的距离dist
 //>>给一个指针p，让其指向新链表中的节点，让p从新链表起始位置往后移动dist步之后指向的节点
 //即新链表中当前节点的随机指针域应该指向的节点
-//
+
 //方法二：
 //1.在原链表每个节点之后插入值相等的新节点
 //2.给新插入节点的随机指针域进行赋值
@@ -117,22 +118,6 @@ struct Node {
 
 struct Node* copyRandomList(struct Node* head)
 {
-
-	while (curold)
-	{
-		curnew = curold->next;
-		if (curold->random == NULL)
-			curnew->random = NULL;
-		else
-			curnew->random = curold->random->next;
-
-		curold = curnew->next;
-	}
-
-	while (curold)
-	{
-		curnew = curold->next;
-		curold->next = curnew->next;
-		curold = curnew;
-	}
+	//课堂试例
+	
 }
