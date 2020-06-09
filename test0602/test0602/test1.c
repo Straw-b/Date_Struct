@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS 1
 
 //11. 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
 //要求返回这个链表的深度拷贝
@@ -18,22 +17,70 @@
 //3.将新插入的节点从原链表中拆下来
 
 
-struct Node {
-	int val;
-	struct TreeNode *next;
-	struct TreeNode *random;
-};
-
-
-struct Node* copyRandomList(struct Node* head)
-{
-	//1.
-
-	//2.
-
-	//3.将新节点从原链表中拆下来
-
-}
+//struct Node {
+//	int val;
+//	struct TreeNode *next;
+//	struct TreeNode *random;
+//};
+//
+//typedef struct Node Node;
+//
+//Node* BuyRandomListNode(int val)
+//{
+//	Node* newNode = (Node*)malloc(sizeof(Node));
+//	if (NULL == newNode)
+//		return NULL;
+//
+//	newNode->val = val;
+//	newNode->next = NULL;
+//	newNode->random = NULL;
+//
+//	return newNode;
+//}
+//
+//struct Node* copyRandomList(struct Node* head)
+//{
+//	if (NULL == head)
+//		return NULL;
+//
+//	//1.在原链表每个节点之后插入值相等的新节点
+//	Node* cur = head;
+//	Node* newNode = NULL;
+//	while (cur)
+//	{
+//		newNode = BuyRandomListNode(cur->val);
+//		if (NULL == newNode)
+//			return NULL;
+//
+//		newNode->next = cur->next;
+//		cur->next = newNode;
+//		cur = newNode->next;
+//
+//	}
+//	
+//	//2.给新插入节点的随机指针域进行赋值
+//	cur = head;
+//	while (cur)
+//	{
+//		newNode = cur->next;
+//		if (cur->random)
+//			newNode->random = cur->random->next;
+//		
+//		cur = newNode->next;
+//	}
+//
+//	//3.将新节点从原链表中拆下来
+//	Node* newHead = head->next;
+//	cur = head;
+//	while (cur->next)
+//	{
+//		newNode = cur->next;
+//		cur->next = newNode->next;
+//		cur = newNode;
+//	}
+//
+//	return newHead;
+//}
 
 
 
@@ -47,96 +94,64 @@ struct Node* copyRandomList(struct Node* head)
 //2.删除重复区间中的节点[start,end)
 
 
-struct ListNode 
-{
-	int val;
-	struct ListNode *next;
-	ListNode(int x) :val(x), next(NULL) 
-	{
-	}
-};
-
-class Solution 
-{
-public:
-	ListNode* deleteDuplication(ListNode* pHead)
-	{
-		ListNode* start = pHead;
-		ListNode* end = start;
-		ListNode* prev = NULL;
-
-		while (start)
-		{
-			end = start->next;
-
-			//找重复节点的范围
-			while (end)
-			{
-
-			}
-
-		}
-
-		if (start->next != end)
-		{
-			prev = start;
-			start = end;
-		}
-		else
-		{
-
-			while (start != end)
-			{
-				//头删
-				if (start == end)
-				{
-
-				}
-				else
-				{
-					//其他节点的删除方式
-					prev->next = start->next;
-					free(start);
-
-				}
-			}
-		}
-		return head;
-	}
-};
-
-
-
-
-
-
-//带头+双向+循环链表增删查改实现
-typedef int LTDataType;
-typedef struct ListNode
-{
-	LTDataType _data;
-	struct ListNode* _next;
-	struct ListNode* _prev;
-}ListNode;
-
-// 创建返回链表的头结点.
-ListNode* ListCreate();
-// 双向链表销毁
-void ListDestory(ListNode* plist);
-// 双向链表打印
-void ListPrint(ListNode* plist);
-// 双向链表尾插
-void ListPushBack(ListNode* plist, LTDataType x);
-// 双向链表尾删
-void ListPopBack(ListNode* plist);
-
-// 双向链表头插
-void ListPushFront(ListNode* plist, LTDataType x);
-// 双向链表头删
-void ListPopFront(ListNode* plist);
-// 双向链表查找
-ListNode* ListFind(ListNode* plist, LTDataType x);
-// 双向链表在pos的前面进行插入
-void ListInsert(ListNode* pos, LTDataType x);
-// 双向链表删除pos位置的节点
-void ListErase(ListNode* pos);
+//struct ListNode 
+//{
+//	int val;
+//	struct ListNode *next;
+//	ListNode(int x) :val(x), next(NULL) 
+//	{
+//	}
+//};
+//
+//typedef struct ListNode ListNode;
+//
+//ListNode* deleteDuplication(ListNode* pHead)
+//{
+//	ListNode* start = pHead;
+//	ListNode* end = start;
+//	ListNode* prev = NULL;
+//
+//	while (start)
+//	{
+//		end = start->next;
+//
+//		//找重复节点的范围
+//		while (end)
+//		{
+//			if (start->val != end->val)
+//				break;
+//
+//			end = end->next;
+//		}
+//
+//		//删除重复区间[start,end)
+//		if (start->next == end)
+//		{
+//			//区间中没有重复元素
+//			prev = start;
+//			start = end;
+//		}
+//		else
+//		{
+//			//[start,end)有重复的节点
+//			while (start != end)
+//			{
+//				//头删
+//				if (start == pHead)
+//				{
+//					pHead = start->next;
+//					free(start);
+//					start = pHead;
+//				}
+//				//其他节点的删除方式
+//				else
+//				{
+//					prev->next = start->next;
+//					free(start);
+//					start = prev->next;
+//				}
+//			}
+//		}
+//	}
+//	return pHead;
+//}

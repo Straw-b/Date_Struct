@@ -1,5 +1,6 @@
 #pragma once
 
+//带头+双向+循环链表
 typedef int DLDataType;
 
 typedef struct DHCListNode
@@ -10,27 +11,30 @@ typedef struct DHCListNode
 }DHCLNode;
 
 
-//初始化
+//初始化--将头节点创建好
 DHCLNode* DHCListInit();
 
+//尾插
+void DHCListPushBack(DHCLNode* pHead, DLDataType data);
+//尾删
+void DHCListPopBack(DHCLNode* pHead);
 
-void DHCListPushBack(DHCLNode* pHhead, DLDataType data);
-void DHCListPopBack(DHCLNode** head);
+//头插
+void DHCListPushFront(DHCLNode* pHead, DLDataType data);
+//头删
+void DHCListPopFront(DHCLNode* pHead);
 
-void SListPushFront(SListNode** head, SLDataType data);
-void SListPopFront(SListNode** head);
+//任意位置插入
+void DHCListInsert(DHCLNode* pos, DLDataType data);
+//任意位置删除
+void DHCListErase(DHCLNode* pos);
 
-void SListInsertAfter(SListNode* pos, SLDataType data);
-void SListEraseAfter(SListNode* pos);
+//查找
+DHCLNode* DHCListFind(DHCLNode* pHead, DLDataType data);
 
-int SListSize(SListNode* head);
+int DHCListSize(DHCLNode* pHead);
+int DHCListEmpty(DHCLNode* pHead);
+void DHCListClear(DHCLNode* pHead);
+void DHCListDestroy(DHCLNode* pHead);
 
-int SListEmpty(SListNode* head);
-
-SListNode* SListFind(SListNode* head, SLDataType data);
-
-void SListDestroy(SListNode** head);
-
-
-//////////////////////////////////////////////////////////////////////////////
-void TestSList();
+void TestDHCList();
