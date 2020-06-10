@@ -2,6 +2,6 @@
 
 int main()
 {
-
+	TestStack();
 	return 0;
 }
