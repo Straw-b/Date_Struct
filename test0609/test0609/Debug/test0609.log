@@ -1,0 +1,43 @@
+﻿生成启动时间为 2020/6/10 21:31:17。
+     1>项目“F:\Code\test0609\test0609\test0609.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt test.c
+         test.c
+     1>f:\code\test0609\test0609\test.c(13): warning C4013: “assert”未定义；假设外部返回 int
+     1>f:\code\test0609\test0609\test.c(14): warning C4013: “malloc”未定义；假设外部返回 int
+     1>f:\code\test0609\test0609\test.c(15): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(15): warning C4047: “==”:“int”与“DataType *”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(34): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(34): warning C4047: “==”:“DataType *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(41): warning C4013: “memcpy”未定义；假设外部返回 int
+     1>f:\code\test0609\test0609\test.c(44): warning C4013: “free”未定义；假设外部返回 int
+     1>f:\code\test0609\test0609\test.c(63): warning C4013: “StackEmpty”未定义；假设外部返回 int
+     1>f:\code\test0609\test0609\test.c(95): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(95): warning C4047: “=”:“DataType *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(168): error C2061: 语法错误: 标识符“myQueueEmpty”
+     1>f:\code\test0609\test0609\test.c(168): error C2059: 语法错误:“;”
+     1>f:\code\test0609\test0609\test.c(168): error C2059: 语法错误:“类型”
+     1>f:\code\test0609\test0609\test.c(227): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(227): warning C4047: “==”:“int”与“QNode *”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(230): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(230): warning C4047: “return”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(234): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(234): warning C4047: “=”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(268): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(268): warning C4047: “初始化”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(274): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(274): warning C4047: “==”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(306): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(306): warning C4047: “初始化”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(314): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(314): warning C4047: “=”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(315): error C2065: “NULL”: 未声明的标识符
+     1>f:\code\test0609\test0609\test.c(315): warning C4047: “=”:“QNode *”与“int”的间接级别不同
+     1>f:\code\test0609\test0609\test.c(399): error C2061: 语法错误: 标识符“myStackEmpty”
+     1>f:\code\test0609\test0609\test.c(399): error C2059: 语法错误:“;”
+     1>f:\code\test0609\test0609\test.c(399): error C2059: 语法错误:“类型”
+     1>已完成生成项目“F:\Code\test0609\test0609\test0609.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.22
