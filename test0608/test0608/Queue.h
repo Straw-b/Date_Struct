@@ -1,61 +1,24 @@
 #pragma once
 
-
 // 队列底层采用连续空间来实现，效果不是很好
 // 队列：采用链表的方式实现的
 
 typedef int QDataType;
+
+// 链式结构：表示队列
+//队列底层使用链表中的节点
 typedef struct QNode
 {
 	struct QNode* next;
 	QDataType data;
 }QNode;
 
-
+// 队列的结构
 typedef struct Queue
 {
 	QNode* front;
 	QNode* rear;
-	int size;
-}Queue;
-
-void QueueInit(Queue* q);
-void QueuePush(Queue* q, QDataType data);
-void QueuePop(Queue* q);
-QDataType QueueFront(Queue* q);
-QDataType QueueBack(Queue* q);
-int QueueSize(Queue* q);
-int QueueEmpty(Queue* q);
-void QueueDestroy(Queue* q);
-
-
-
-///////////////////////////////////////////////////////
-void TestQueue();
-
-
-
-
-
-
-
-
-
-
-typedef int QDataType;
-
-// 链式结构：表示队列
-typedef struct QListNode
-{
-	struct QListNode* _pNext;
-	QDataType _data;
-}QNode;
-
-// 队列的结构
-typedef struct Queue
-{
-	QNode* _front;
-	QNode* _rear;
+	int size;  //记录队列中有效元素的个数
 }Queue;
 
 // 初始化队列
@@ -74,3 +37,7 @@ int QueueSize(Queue* q);
 int QueueEmpty(Queue* q);
 // 销毁队列
 void QueueDestroy(Queue* q);
+
+
+///////////////////////////////////////////////////////
+void TestQueue();

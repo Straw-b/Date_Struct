@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-
+//申请节点的函数
 QNode* BuyQNode(QDataType data)
 {
 	QNode* newNode = (QNode*)malloc(sizeof(QNode));
@@ -23,6 +23,8 @@ QNode* BuyQNode(QDataType data)
 // 参数检测时：什么情况下应该用assert，什么情况下应该用if来判断
 // if: 当条件成立时，该种情况是一种合法的情况，应该用if---比如：空链表
 // assert: 当条件成立时，该种情况是一种非法的情况，应用if---比如：链表不存在
+
+// 初始化队列
 void QueueInit(Queue* q)
 {
 	assert(q);
@@ -31,6 +33,7 @@ void QueueInit(Queue* q)
 	q->size = 0;
 }
 
+// 队尾入队列
 void QueuePush(Queue* q, QDataType data)
 {
 	QNode* newNode = BuyQNode(data);
@@ -48,6 +51,7 @@ void QueuePush(Queue* q, QDataType data)
 	q->size++;
 }
 
+// 队头出队列
 void QueuePop(Queue* q)
 {
 	QNode* delNode = NULL;
@@ -64,38 +68,43 @@ void QueuePop(Queue* q)
 	q->size--;
 }
 
+// 获取队列头部元素
 QDataType QueueFront(Queue* q)
 {
 	assert(!QueueEmpty(q));
 	return q->front->data;
 }
 
-
+// 获取队列尾部元素
 QDataType QueueBack(Queue* q)
 {
 	assert(!QueueEmpty(q));
 	return q->rear->data;
 }
 
+// 获取队列中有效元素个数
 int QueueSize(Queue* q)
 {
 	assert(q);
 	return q->size;
 }
 
+// 检测队列是否为空，如果为空返回非零结果，如果非空返回0
 int QueueEmpty(Queue* q)
 {
 	assert(q);
 	return NULL == q->front;
 }
 
+// 销毁队列：带有节点的单链表
 void QueueDestroy(Queue* q)
 {
+	//采用头删法将链表中有效节点和头节点全部删除点
 	assert(q);
 	QNode* cur = q->front;
 	while (cur)
 	{
-		q->front = cur;
+		q->front = cur->next;
 		free(cur);
 		cur = q->front;
 	}
@@ -105,8 +114,7 @@ void QueueDestroy(Queue* q)
 }
 
 
-
-
+//////////////////////////////////////////////////////////////
 void TestQueue()
 {
 	Queue q;
@@ -134,138 +142,6 @@ void TestQueue()
 	QueuePop(&q);
 	QueuePop(&q);
 	printf("%d \n", QueueSize(&q));
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//参考
-///////////////////////////////////////////////
-
-typedef int QDataType;
-
-//队列底层使用链表中的节点
-typedef struct QNode
-{
-	struct QNode* next;
-	QDataType val;
-}QNode;
-
-//队列的结构
-typedef struct Queue
-{
-	struct QNode* head;
-	struct QNode* rear;
-	int size;//记录队列中有效元素的个数
-}Queue;
-
-//申请节点的函数
-QNode* BuyQNode(int val)
-{
-	QNode* newNode = (QNode*)malloc(sizeof(QNode));
-	if (NULL == newNode)
-	{
-		assert(0);
-		return NULL;
-	}
-
-	newNode->val = val;
-	newNode->next = NULL;
-
-	return newNode;
-}
-
-// 初始化队列
-void QueueInit(Queue* q)
-{
-	assert(q);
-	q->head = BuyQNode(0);
-	q->size = 0;
-	q->rear = q->head;
-}
-
-// 队尾入队列
-void QueuePush(Queue* q, QDataType val)
-{
-	assert(q);
-	QNode* newNode = BuyQNode(val);
-	q->rear->next = newNode;
-	q->rear = newNode;
-	q->size++;
-}
-
-// 检测队列是否为空，如果为空返回非零结果，如果非空返回0
-int QueueEmpty(Queue* q)
-{
-	assert(q);
-	return 0 == q->size;
-}
-
-// 队头出队列
-void QueuePop(Queue* q)
-{
-	QNode* pDelNode = NULL;
-	if (QueueEmpty(q))
-		return;
-
-	pDelNode = q->head->next;
-	q->head->next = pDelNode->next;
-	if (q->head->next == NULL)
-		q->rear = q->head;
-
-	free(pDelNode);
-	q->size--;
-}
-
-// 获取队列中有效元素个数
-int QueueSize(Queue* q)
-{
-	assert(q);
-	return q->size;
-}
-
-// 获取队列头部元素
-QDataType QueueFront(Queue* q)
-{
-	assert(!QueueEmpty(q));
-	return q->head->next->val;
-}
-
-// 获取队列尾部元素
-QDataType QueueBack(Queue* q)
-{
-	assert(!QueueEmpty(q));
-	return q->rear->val;
-}
-
-// 销毁队列：带有节点的单链表
-void QueueDestroy(Queue* q)
-{
-	//采用头删法将链表中有效节点和头节点全部删除点
-	QNode* cur = NULL;
-	while (cur)
-	{
-		q->head = cur->next;
-		free(cur);
-		cur = q->head;
-	}
-
-	q->head = NULL;
-	q->rear = NULL;
-	q->size = 0;
+	QueueDestroy(&q);
 }
