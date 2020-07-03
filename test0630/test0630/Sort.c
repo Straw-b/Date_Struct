@@ -86,9 +86,9 @@ void TestSort()
 
 	InsertSort(array, sizeof(array) / sizeof(array[0]));
 
-	ShellSort();
+	ShellSort(array, sizeof(array) / sizeof(array[0]));
 
-	SelectSort();
+	SelectSort(array, sizeof(array) / sizeof(array[0]));
 
 	PrintArray(array, sizeof(array) / sizeof(array[0]));
 
