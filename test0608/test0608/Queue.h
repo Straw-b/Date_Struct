@@ -6,7 +6,7 @@
 typedef int QDataType;
 
 // 链式结构：表示队列
-//队列底层使用链表中的节点
+// 队列底层使用链表中的节点
 typedef struct QNode
 {
 	struct QNode* next;
