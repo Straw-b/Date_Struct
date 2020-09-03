@@ -259,18 +259,18 @@ int Partion1(int array[], int left, int right)
 	while (begin < end)
 	{
 		//让begin从前往后找，找比基准值大的元素，找到了就停下来
-		while (begin < end && array[begin] <= key)
+		while (begin < end && array[begin] <= key) // 防止越界
 			begin++;
 
 		//让end从后往后找，找比基准值小的元素，找到了就停下来
-		while (begin < end && array[end] >= key)
+		while (begin < end && array[end] >= key) // 防止越界
 			end--;
 
-		if (begin < end)
+		if (begin < end) // 不在同一个位置
 			Swap(&array[begin], &array[end]);
 	}
 
-	if (begin != right - 1)
+	if (begin != right - 1) // 防止begin，end，key在最后位置
 		Swap(&array[begin], &array[right - 1]);
 
 	return begin;
@@ -300,7 +300,7 @@ int Partion2(int array[], int left, int right)
 		//让end从后往前找，找比基准值小的元素
 		while (begin < end && array[end] >= key)
 			end--;
-		//填begin位置的坑
+		//让end位置小的元素填begin位置的坑
 		if (begin < end)
 		{
 			array[begin] = array[end];
@@ -328,11 +328,11 @@ int Partion3(int array[], int left, int right)
 		++cur;
 	}
 
-	if (++prev != right - 1)
+	if (++prev != right - 1) // 防止cur，prev，key在最后位置
 		Swap(&array[right - 1], &array[prev]);
+
 	return prev;
 }
-
 
 // 快速排序
 // 时间复杂度：O(N^2)
@@ -344,11 +344,11 @@ void QuickSort(int array[], int left, int right)
 	if (right - left > 1)
 	{
 		// Partion按照基准值区间进行划分成两部分，左部分元素比基准值小，右部分比基准值大
-		// 该函数返回基准值在区间重大的位置
+		// 该函数返回基准值在区间中的位置
 		// [left,right)区间中的基准值位置已经存放好了，基准值左侧和基准值右侧不一定有序
-		// int div = Partion1(array, left, right);// hoare法
-		// int div = Partion2(array, left, right);// 挖坑法
-		int div = Partion3(array, left, right);// 前后指针法
+		//int div = Partion1(array, left, right); // hoare法
+		//int div = Partion2(array, left, right); // 挖坑法
+		int div = Partion3(array, left, right); // 前后指针法
 
 		//基准值的左侧：[left, div)
 		QuickSort(array, left, div);
@@ -362,13 +362,10 @@ void QuickSort(int array[], int left, int right)
 
 
 
-
-
-
 ////////////////////////////////////////////////////////////////////
 void TestSort()
 {
-	int array[] = { 4, 1, 7, 6, 3, 9, 5, 8, 0, 2 };
+	int array[] = { 4, 1, 7, 6, 3, 9, 2, 8, 0, 5 };
 	PrintArray(array, sizeof(array) / sizeof(array[0]));
 
 	//InsertSort(array, sizeof(array) / sizeof(array[0]));
@@ -381,5 +378,4 @@ void TestSort()
 	QuickSort(array, 0, sizeof(array) / sizeof(array[0]));
 
 	PrintArray(array, sizeof(array) / sizeof(array[0]));
-
 }
