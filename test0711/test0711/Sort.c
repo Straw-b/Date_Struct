@@ -1,5 +1,6 @@
 #include "Sort.h"
 #include <stdio.h>
+#include "Stack.h"
 
 
 //打印
@@ -12,6 +13,7 @@ void PrintArray(int array[], int size)
 }
 
 
+// 直接插入排序
 // 在整个排序过程中，没有使用额外的辅助空间，空间复杂度：O(1)
 // 时间复杂度：O(N^2)
 // 稳定性：稳定
@@ -217,7 +219,7 @@ void BubbleSort(int array[], int size)
 		//}
 
 		//方式二的j：表示后一个元素的下标，j要取到最后一个元素
-		for (int j = 1; j < size - i ; ++j)
+		for (int j = 1; j < size - i; ++j)
 		{
 			if (array[j - 1] > array[j])
 				Swap(&array[j - 1], &array[j]);
@@ -240,7 +242,7 @@ void BubbleSortOP(int array[], int size)
 			{
 				Swap(&array[j - 1], &array[j]);
 				flag = 1; //在该趟冒泡时区间还无序
-			}	
+			}
 		}
 		if (!flag)
 			return;
@@ -248,39 +250,71 @@ void BubbleSortOP(int array[], int size)
 }
 
 
+
+// 三数取中法：三个数据取最中间的数据作为基准值
+int GetMiddleIndex(int array[], int left, int right)
+{
+	int mid = left + ((right - left) >> 1);
+	// 三个数据：left、mid、right-1；
+	if (array[left] < array[right - 1])
+	{
+		if (array[mid] < array[left])
+			return left;
+		else if (array[mid] > array[right - 1])
+			return right - 1;
+		else
+			return mid;
+	}
+	else
+	{
+		if (array[mid] > array[left])
+			return left;
+		else if (array[mid] < array[right - 1])
+			return right - 1;
+		else
+			return mid;
+	}
+}
+
 // 基准值分割
-// hoare法：提出快排思想的人
+// 1.hoare法：提出快排思想的人
 int Partion1(int array[], int left, int right)
 {
 	int begin = left;
 	int end = right - 1;
+	int keyofindex = GetMiddleIndex(array, left, right); // 三数取中法
+	if (keyofindex != right - 1)
+		Swap(&array[keyofindex], &array[right - 1]);
 	int key = array[right - 1];
 
 	while (begin < end)
 	{
 		//让begin从前往后找，找比基准值大的元素，找到了就停下来
-		while (begin < end && array[begin] <= key)
+		while (begin < end && array[begin] <= key) // 防止越界
 			begin++;
 
 		//让end从后往后找，找比基准值小的元素，找到了就停下来
-		while (begin < end && array[end] >= key)
+		while (begin < end && array[end] >= key) // 防止越界
 			end--;
 
-		if (begin < end)
+		if (begin < end) // 不在同一个位置
 			Swap(&array[begin], &array[end]);
 	}
 
-	if (begin != right - 1)
+	if (begin != right - 1) // 防止begin，end，key在最后位置
 		Swap(&array[begin], &array[right - 1]);
 
 	return begin;
 }
 
-// 挖坑法
+// 2.挖坑法
 int Partion2(int array[], int left, int right)
 {
 	int begin = left;
 	int end = right - 1;
+	int keyofindex = GetMiddleIndex(array, left, right); // 三数取中法
+	if (keyofindex != right - 1)
+		Swap(&array[keyofindex], &array[right - 1]);
 	int key = array[right - 1];
 
 	while (begin < end)
@@ -300,7 +334,7 @@ int Partion2(int array[], int left, int right)
 		//让end从后往前找，找比基准值小的元素
 		while (begin < end && array[end] >= key)
 			end--;
-		//填begin位置的坑
+		//让end位置小的元素填begin位置的坑
 		if (begin < end)
 		{
 			array[begin] = array[end];
@@ -314,11 +348,14 @@ int Partion2(int array[], int left, int right)
 	return begin;
 }
 
-// 前后指针法
+// 3.前后指针法
 int Partion3(int array[], int left, int right)
 {
 	int cur = left;
 	int prev = cur - 1;
+	int keyofindex = GetMiddleIndex(array, left, right); // 采用三数取中法降低取到极值的概率
+	if (keyofindex != right - 1)
+		Swap(&array[keyofindex], &array[right - 1]);
 	int key = array[right - 1];
 
 	while (cur < right)
@@ -328,27 +365,32 @@ int Partion3(int array[], int left, int right)
 		++cur;
 	}
 
-	if (++prev != right - 1)
+	if (++prev != right - 1) // 防止cur，prev，key在最后位置
 		Swap(&array[right - 1], &array[prev]);
+
 	return prev;
 }
 
-
 // 快速排序
-// 时间复杂度：
-// 空间复杂度：
+// 时间复杂度：O(N^2)
+// 空间复杂度：O(1)
 // 稳定性：不稳定
 // [left,right)表示待排序元素的区间
-void QuickSort(int array[], int left, int right) 
+void QuickSort(int array[], int left, int right)
 {
-	if (right - left > 1)
+	// 设定阈值，小于阈值时使用插入排序来优化
+	if (right - left < 16) 
+	{
+		InsertSort(array + left, right - left);
+	}
+	else
 	{
 		// Partion按照基准值区间进行划分成两部分，左部分元素比基准值小，右部分比基准值大
-		// 该函数返回基准值在区间重大的位置
+		// 该函数返回基准值在区间中的位置
 		// [left,right)区间中的基准值位置已经存放好了，基准值左侧和基准值右侧不一定有序
-		// int div = Partion1(array, left, right);// hoare法
-		// int div = Partion2(array, left, right);// 挖坑法
-		int div = Partion3(array, left, right);// 前后指针法
+		//int div = Partion1(array, left, right); // hoare法
+		//int div = Partion2(array, left, right); // 挖坑法
+		int div = Partion3(array, left, right); // 前后指针法
 
 		//基准值的左侧：[left, div)
 		QuickSort(array, left, div);
@@ -359,24 +401,44 @@ void QuickSort(int array[], int left, int right)
 }
 
 
-// 快速排序优化
+
+// 快速排序非递归
+// 用栈来将递归转化为循环
 void QuickSortNor(int array[], int size)
 {
 	int left = 0;
 	int right = size;
 	Stack s;
-	StackInit(&s);
-
-	StackPush(&s, right);
-	StackPush(&s, left);
-
-	while ()
+	StackInit(&s); // 初始化
+	StackPush(&s, right); // 先进后出，size
+	StackPush(&s, left); // 后进先出，0
+	
+	while (!StackEmpty(&s))
 	{
+		// 先按照基准值来进行划分
+		left = StackTop(&s); // 获取栈顶元素，先取左，0
+		StackPop(&s); // 出栈：尾删
+		right = StackTop(&s); // size
+		StackPop(&s); // 出栈：尾删
 
-
+		if (right - left > 1) // 有数据
+		{
+			int div = Partion1(array, left, right); // hoare法先划分区间
+			
+			// 借助栈来保存数据
+			// 排基准值的左半侧-->将右半部分的区间入栈[div+1,right)
+			StackPush(&s, right); // 压右半部分的右半边入栈：尾插
+			StackPush(&s, div + 1); // 压右半部分的左半边
+			// 排基准值的右半侧-->将左半部分的区间入栈[left,div)
+			StackPush(&s, div); // 压左半部分的右半边入栈：尾插
+			StackPush(&s, left); // 压左半部分的左半边
+		}
 	}
-
+	StackDestroy(&s);
 }
+
+
+
 
 
 
@@ -386,6 +448,7 @@ void QuickSortNor(int array[], int size)
 void TestSort()
 {
 	int array[] = { 4, 1, 7, 6, 3, 9, 5, 8, 0, 2 };
+	//int array[] = { 4, 1, 7, 6, 3, 9, 2, 8, 0, 5 };
 	PrintArray(array, sizeof(array) / sizeof(array[0]));
 
 	//InsertSort(array, sizeof(array) / sizeof(array[0]));
@@ -395,8 +458,10 @@ void TestSort()
 	//HeapSort(array, sizeof(array) / sizeof(array[0]));
 	//BubbleSort(array, sizeof(array) / sizeof(array[0]));
 	//BubbleSortOP(array, sizeof(array) / sizeof(array[0]));
-	QuickSort(array, 0, sizeof(array) / sizeof(array[0]));
+	//QuickSort(array, 0, sizeof(array) / sizeof(array[0]));
+	QuickSortNor(array, sizeof(array) / sizeof(array[0]));
 
 	PrintArray(array, sizeof(array) / sizeof(array[0]));
-
 }
+
+

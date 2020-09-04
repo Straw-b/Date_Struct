@@ -1,7 +1,7 @@
 #pragma once
 
 
-//插入排序
+// 插入排序
 void InsertSort(int array[], int size);
 
 // 希尔排序
@@ -14,13 +14,13 @@ void SelectSort(int array[], int size);
 void HeapAdjustDwon(int array[], int size, int parent);
 void HeapSort(int array[], int size);
 
-//冒泡排序
+// 冒泡排序
 void BubbleSort(int array[], int size);
 
-//快速排序
+// 快速排序
 void QuickSort(int array[], int left, int right);
 
-// 快速排序优化
+// 快速排序非递归
 void QuickSortNor(int array[], int size);
 
 
@@ -29,3 +29,4 @@ void QuickSortNor(int array[], int size);
 
 /////////////////////////////////////////////////////////
 void TestSort();
+

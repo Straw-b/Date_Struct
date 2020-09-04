@@ -21,12 +21,15 @@
     <ClCompile Include="Sort.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="111.c">
+    <ClCompile Include="Stack.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
