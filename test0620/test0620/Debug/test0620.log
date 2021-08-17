@@ -1,0 +1,35 @@
+﻿生成启动时间为 2021/8/17 星期二 11:00:22。
+     1>项目“E:\Code\6-7月\test0620\test0620\test0620.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt BinaryTree.c Queue1.c test.c
+         test.c
+     1>e:\code\6-7月\test0620\test0620\test.c(5): warning C4013: “TestBinTree”未定义；假设外部返回 int
+         Queue1.c
+         BinaryTree.c
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(108): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(108): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(118): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(118): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(122): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(122): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(112): warning C4047: “初始化”:“BTNode *”与“QDataType”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(217): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(217): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(233): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(233): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(234): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(234): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(239): warning C4047: “函数”:“QDataType”与“BTNode *”的间接级别不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(239): warning C4024: “QueuePush”: 形参和实参 2 的类型不同
+     1>e:\code\6-7月\test0620\test0620\binarytree.c(220): warning C4047: “初始化”:“BTNode *”与“QDataType”的间接级别不同
+         正在生成代码...
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Code\6-7月\test0620\Debug\test0620.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Code\6-7月\test0620\Debug\test0620.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Code\6-7月\test0620\Debug\test0620.lib" /MACHINE:X86 Debug\BinaryTree.obj
+         Debug\Queue1.obj
+         Debug\test.obj
+         test0620.vcxproj -> E:\Code\6-7月\test0620\Debug\test0620.exe
+     1>已完成生成项目“E:\Code\6-7月\test0620\test0620\test0620.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:00.84
