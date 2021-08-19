@@ -1,0 +1,14 @@
+﻿生成启动时间为 2021/8/18 星期三 19:43:43。
+     1>项目“E:\Code\6-7月\test0709\test0709\test0709.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt Sort.c
+         Sort.c
+       Link:
+         E:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Code\6-7月\test0709\Debug\test0709.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\Code\6-7月\test0709\Debug\test0709.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Code\6-7月\test0709\Debug\test0709.lib" /MACHINE:X86 Debug\Sort.obj
+         Debug\test.obj
+         test0709.vcxproj -> E:\Code\6-7月\test0709\Debug\test0709.exe
+     1>已完成生成项目“E:\Code\6-7月\test0709\test0709\test0709.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:02.29
